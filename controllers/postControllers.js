@@ -16,6 +16,7 @@ const createPost = async (req, res, next) => {
       );
     }
 
+
     const { thumbnail } = req.files;
     // check the file size
     if (thumbnail.size > 2000000) {
@@ -59,7 +60,9 @@ const createPost = async (req, res, next) => {
       }
     );
   } catch (error) {
+    // console.log(error)
     return next(new HttpError(error));
+
   }
 };
 
