@@ -118,7 +118,7 @@ const getUser = async(req , res, next) =>{
         if(!user){
             return next(new HttpError("User Not found" , 404))
         }
-        console.log(user)
+        // console.log(user)
         res.status(200).json(user);
 
     } catch (error) {
@@ -145,6 +145,8 @@ const changeAvatar = async(req , res, next) =>{
         if(!req.files.avatar){
             return next(new HttpError("Please choose an image" , 422))
         }
+
+        // console.log(req.files.avatar);
 
         // find user form db
         const user = await User.findById(req.user.id)
